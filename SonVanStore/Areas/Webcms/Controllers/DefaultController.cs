@@ -30,12 +30,11 @@ namespace iGoo.Areas.Webcms.Controllers
         {
             var now = DateTime.Now;
             var expiredDate = new DateTime(2016, 11, 2);
-            bool license = true;
             if (now.Date >= expiredDate.Date)
             {
-                license = false;
+                return false;
             }
-            return license;
+            return true;
         }
 
         public void CheckUser()

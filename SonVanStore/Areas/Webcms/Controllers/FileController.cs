@@ -42,6 +42,34 @@ namespace iGoo.Areas.Webcms.Controllers
             return View();
         }
 
+        public ActionResult FileManage()
+        {
+            LoadDefault();
+            //Select user
+            ViewBag.LoginUserID = Session["UserID"];
+            ViewBag.LoginFullName = Session["FullName"];
+
+            //Slect group
+            AttributeViewModel at = new AttributeViewModel();
+            at.Code = "ATTRIBUTE_UPLOAD";
+            ViewBag.GroupName = at.SelectChild().AsEnumerable().ToList();
+
+            FileViewModel fv = new FileViewModel();
+            if (!Request.IsNull("txtKey"))
+                fv.Name = Request.Get("txtKey");
+            if (!Request.IsNull("slSearchGroup"))
+                fv.AttributeID = new Guid(Request.Get("slSearchGroup"));
+            
+            fv.PageIndex = Request.IsNull("page") ? 1 : Request.GetNumber("page");
+            fv.PageSize = Request.IsNull("show") ? 20 : Request.GetNumber("show");
+
+            List<DataRow> list = fv.SelectAll().AsEnumerable().ToList();
+            ViewBag.File = list;
+            ViewBag.TotalPages = list.Count > 0 ? (int)Math.Ceiling(Convert.ToDouble(list[0]["TotalRows"]) / (double)fv.PageSize) : 0;
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
         {

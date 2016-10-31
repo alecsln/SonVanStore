@@ -21,7 +21,7 @@ namespace iGoo.Areas.Webcms.Controllers
                 Session["UserID"] = null;
                 Session["FullNameAdmin"] = null;
                 Session["UserName"] = null;
-                return View("LicenseExpired");
+                return Content("Your license is expired. Please renew your license.");
             }
             else if (Session["UserID"] != null)
                 return Redirect("/Webcms/Websites/Blank");
@@ -71,7 +71,7 @@ namespace iGoo.Areas.Webcms.Controllers
         }
         public ActionResult LicenseExpired()
         {
-            return View();
+            return Content("Your license is expired. Please renew your license.");
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using DocumentFormat.OpenXml.Bibliography;
 using iGoo.Classes;
 using System.Data.SqlTypes;
 using System.Data.SqlClient;
