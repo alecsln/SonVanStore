@@ -1,13 +1,13 @@
 ﻿@using iGoo.Helpers
 @{
-    Layout = "~/Views/Layout/Home2.cshtml";
+    Layout = "~/Views/Layout/Home.cshtml";
 }
 @{String Content = Libs.BBCodeToHTML((string)@ViewBag.Question[0]["Content"]);}
 @section meta
 {
 <title>@ViewBag.Question[0]["Title"]</title>
 <meta name="description" content="@Libs.RemoveTags(Content).Truncate(160)" />
-<link rel="canonical" href="http://@Libs.sApp("Domain")/hoidap/@(Html.Raw(ViewBag.Question[0]["SEOName"])).html" />
+<link rel="canonical" href="http://@Libs.sApp("Domain")/homthugopy/@(Html.Raw(ViewBag.Question[0]["SEOName"])).html" />
 }
 @section head
 {
@@ -67,7 +67,7 @@
 {
 <div class="content-h cl">
     <div class="title-c cl nv">
-        <a itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="url" title="Hỏi & Đáp Goolge Việt" href="/hoidap"><span itemprop="title">Hỏi & Đáp</span></a><span class="fl">&raquo;</span>
+        <a itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="url" title="Hỏi & Đáp Goolge Việt" href="/homthugopy"><span itemprop="title">Hỏi & Đáp</span></a><span class="fl">&raquo;</span>
         <h2><a itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="url" title="@ViewBag.Question[0]["CateMetaTitle"]" href="@(ViewBag.Question[0]["CateSEOName"])"><span itemprop="title">@ViewBag.Question[0]["CateName"]</span></a></h2>
     </div>
     <div class="answer-v">
@@ -81,7 +81,7 @@
         </div>
 
         <div class="u">
-            <a rel="nofollow" title="Trang cá nhân G+ của @ViewBag.Question[0]["FullName"]" target="_blank" href="/u/@ViewBag.Question[0]["UserName"]"><img class="a" alt="Ảnh cá nhân của @item["FullName"]" src="@("".Equals(ViewBag.Question[0]["Image"].ToString()) ? Url.Content("~/Source/images/avatar.jpg") : ViewBag.Question[0]["Image"].ToString())" /></a>
+            <a rel="nofollow" title="Trang cá nhân G+ của @ViewBag.Question[0]["FullName"]" target="_blank" href="/u/@ViewBag.Question[0]["UserName"]"><img class="a" alt="Ảnh cá nhân của @ViewBag.Question[0]["FullName"]" src="@("".Equals(ViewBag.Question[0]["Image"].ToString()) ? Url.Content("~/Source/images/avatar.jpg") : ViewBag.Question[0]["Image"].ToString())" /></a>
             <p><a rel="nofollow" class="n" target="_blank" href="/u/@ViewBag.Question[0]["UserName"]">@(ViewBag.Question[0]["FullName"])</a></p>
             <p>@(Libs.ToPrettyDate(Convert.ToDateTime(ViewBag.Question[0]["Created"])))</p>
         </div>

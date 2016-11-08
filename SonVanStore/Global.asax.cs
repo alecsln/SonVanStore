@@ -54,7 +54,7 @@ namespace iGoo
             //Tags news
             routes.MapRoute("TagsNews", "tags/{title}", new { controller = "News", action = "TagsNews", title = string.Empty }, new string[] { "iGoo.Controllers" });
             //Tags answer
-            routes.MapRoute("TagsAnswer", "hoidap/tags/{title}", new { controller = "Answer", action = "TagsAnswer", title = string.Empty }, new string[] { "iGoo.Controllers" });
+            routes.MapRoute("TagsAnswer", "homthugopy/tags/{title}", new { controller = "Answer", action = "TagsAnswer", title = string.Empty }, new string[] { "iGoo.Controllers" });
             //Tags product
             routes.MapRoute("TagsProduct", "p/tags/{title}", new { controller = "Product", action = "TagsProduct", title = string.Empty }, new string[] { "iGoo.Controllers" });
             //News view
@@ -62,12 +62,12 @@ namespace iGoo
             //Page view
             routes.MapRoute("PageView", "s/{title}", new { controller = "News", action = "PageView" }, new string[] { "iGoo.Controllers" });
             //Answer Rss
-            routes.MapRoute("AnswerRss", "hoidap/{title}.rss", new { controller = "Answer", action = "Rss" }, new string[] { "iGoo.Controllers" });
+            routes.MapRoute("AnswerRss", "homthugopy/{title}.rss", new { controller = "Answer", action = "Rss" }, new string[] { "iGoo.Controllers" });
             //Answer view
-            routes.MapRoute("AnswerView", "hoidap/{title}.html", new { controller = "Answer", action = "View" }, new string[] { "iGoo.Controllers" });
+            routes.MapRoute("AnswerView", "homthugopy/{title}.html", new { controller = "Answer", action = "View" }, new string[] { "iGoo.Controllers" });
             //Category Answer
-            routes.MapRoute("HomeAnswer", "hoidap", new { controller = "Answer", action = "Index"}, new string[] { "iGoo.Controllers" });
-            routes.MapRoute("CateAnswer", "hoidap/{title}/{page}", new { controller = "Answer", action = "List", page = "1" }, new string[] { "iGoo.Controllers" });
+            routes.MapRoute("HomeAnswer", "homthugopy", new { controller = "Answer", action = "Index"}, new string[] { "iGoo.Controllers" });
+            routes.MapRoute("CateAnswer", "homthugopy/{title}/{page}", new { controller = "Answer", action = "List", page = "1" }, new string[] { "iGoo.Controllers" });
             //Prodcut view
             routes.MapRoute("ProductView", "p/{title}.html", new { controller = "Product", action = "View" }, new string[] { "iGoo.Controllers" });
             //Product Rss
@@ -103,7 +103,7 @@ namespace iGoo
         {
             Session["start"] = DateTime.Now;
             Application.Lock();
-
+            Application["sessiontimeout"] = System.Web.HttpContext.Current.Session.Timeout;
             Application["OnlineUsers"] = Convert.ToInt32(Application["OnlineUsers"]) + 1;
 
             Application.UnLock();

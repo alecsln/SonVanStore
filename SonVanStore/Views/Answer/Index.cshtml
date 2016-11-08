@@ -1,6 +1,6 @@
 ﻿@using iGoo.Helpers
 @{
-    Layout = "~/Views/Layout/Home2.cshtml";
+    Layout = "~/Views/Layout/Home.cshtml";
 }
 @section meta
 {
@@ -15,7 +15,7 @@ else
 }
 <meta name="keywords" content="@ViewBag.Category[0]["MetaKeyword"]" />
 
-<link rel="canonical" href="http://@Libs.sApp("Domain")/hoidap" />
+<link rel="canonical" href="http://@Libs.sApp("Domain")/homthugopy" />
 }
 @section head
 {
@@ -38,7 +38,7 @@ else
 {
 <div class="content-h cl">
     <div class="ch1">
-        <h1 class="title-c">Hỏi & Đáp - Chia sẻ kinh nghiệm chăm sóc bé yêu!</h1>
+        <h1 class="title-c">Hỏi & Đáp</h1>
         <div class="answer-l">
         @if (ViewBag.Question.Count > 0)
         {
@@ -46,10 +46,10 @@ else
             {
             <div class="a l cl">
                 <a rel="nofollow" title="Trang cá nhân G+ của @item["FullName"]" target="_blank" href="/u/@item["UserName"]"><img class="av" alt="Ảnh cá nhân của @item["FullName"]" src="@("".Equals(item["Image"].ToString()) ? Url.Content("~/Source/images/avatar.jpg") : item["Image"].ToString())" /></a>
-                <h2><a title="@item["Title"]" href="hoidap/@(item["SEOName"]).html">@item["Title"]</a></h2>
+                <h2><a title="@item["Title"]" href="homthugopy/@(item["SEOName"]).html">@item["Title"]</a></h2>
                 <p class="d">@(Libs.ToPrettyDate(Convert.ToDateTime(item["Modified"])))</p>
                 <div class="r">
-                    <p><g:plusone size="small" href="http://igoo.vn/hoidap/@(item["SEOName"]).html"></g:plusone></p>
+                    <p><g:plusone size="small" href="http://igoo.vn/homthugopy/@(item["SEOName"]).html"></g:plusone></p>
                     <p class="t">@item["TotalAnswer"] Trả lời</p>
                 </div>
             </div>
@@ -81,7 +81,7 @@ else
             <h3>Từ khoá - Tags</h3>
             @foreach (var item in ViewBag.Category[0]["SEOTags"].ToString().Split(','))
             {
-                <a rel="tag" title="@item.Trim()" href="/hoidap/tags/@item.Trim().Replace(' ', '-')">@item.Trim()</a>
+                <a rel="tag" title="@item.Trim()" href="/homthugopy/tags/@item.Trim().Replace(' ', '-')">@item.Trim()</a>
             }
         </div>
         }

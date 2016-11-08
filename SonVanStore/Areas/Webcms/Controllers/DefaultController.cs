@@ -28,12 +28,12 @@ namespace iGoo.Areas.Webcms.Controllers
 
         public bool CheckLicense()
         {
-            var now = DateTime.Now;
-            var expiredDate = new DateTime(2016, 11, 2);
+            /*var now = DateTime.Now;
+            var expiredDate = new DateTime(2016, 11, 30);
             if (now.Date >= expiredDate.Date)
             {
                 return false;
-            }
+            }*/
             return true;
         }
 

@@ -56,7 +56,7 @@
         </ul>
     </div>
     <div class="news-h">
-        <h3>Tin tức từ sonvan.vn!</h3>
+        <h3>Tin tức từ <strong style="color:red">Sơn Vân Minimart</strong></h3>
         <ul>
             @foreach (var item in ViewBag.NewsNew)
             {
@@ -76,6 +76,12 @@
                 <div class="item tooltip">
                     <h2><a class="title" href="/p/@(item["SEOName"]).html" title="@item["MetaTitle"]">@item["Title"]</a></h2>
                     <div class="p-img">
+                        @if (item["Type"].IndexOf("NEW") >= 0)
+                        {
+                            <div class="newitem">
+                                <span class="pr">&nbsp;</span>
+                            </div>
+                        }
                         <div class="event">
                         @if(!item["DiscountPercent"].ToString().Equals("0"))
                         {
@@ -92,10 +98,48 @@
                     {
                     <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
                     }
-                    <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                    @if (@item["Status"] == 1)
+                    {
+                        if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                        {
+                            <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
+                        }
+                        if (item["DiscountPercent"].ToString().Equals("0"))
+                        {
+                            <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                        }
+                        else
+                        {
+                            <p><span class="price" style="color: gray;"><strike>Giá cũ: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</strike></span></p>
+                            <p><span class="price">Giá mới: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"] / 100 * (100 - item["DiscountPercent"])))₫</span></p>
+                        }
+                    }
+                    else
+                    {
+                        <p><span class="price">Giá bán: 0₫ Tạm hết hàng</span></p>
+                    }
                     <div class="tooltip_content">
                         <p class="title">@item["Title"]</p>
-                        <p class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</p>
+                        @if (@item["Status"] == 1)
+                    {
+                        if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                        {
+                                <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
+                            }
+                            if (item["DiscountPercent"].ToString().Equals("0"))
+                            {
+                                <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                            }
+                            else
+                            {
+                                <p><span class="price" style="color: gray;"><strike>Giá cũ: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</strike></span></p>
+                                <p><span class="price">Giá mới: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"] / 100 * (100 - item["DiscountPercent"])))₫</span></p>
+                            }
+                        }
+                        else
+                        {
+                            <p><span class="price">Giá bán: 0₫ Tạm hết hàng</span></p>
+                        }
                         @if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
                         {
                         <p><strong class="promotion">Khuyến mại:</strong> @item["Promotion"]</p>
@@ -115,15 +159,21 @@
                 <div class="item tooltip">
                     <h2><a class="title" href="/p/@(item["SEOName"]).html" title="@item["MetaTitle"]">@item["Title"]</a></h2>
                     <div class="p-img">
+                        @if (item["Type"].IndexOf("NEW") >= 0)
+                        {
+                            <div class="newitem">
+                                <span class="pr">&nbsp;</span>
+                            </div>
+                        }
                         <div class="event">
-                        @if (!item["DiscountPercent"].ToString().Equals("0"))
-                        {
-                        <span class="pr">-@item["DiscountPercent"]%</span>
-                        }
-                        @if (item["Type"].IndexOf("GIFT") >= 0)
-                        {
-                        <span class="gift"></span>
-                        }
+                            @if (!item["DiscountPercent"].ToString().Equals("0"))
+                            {
+                                <span class="pr">-@item["DiscountPercent"]%</span>
+                            }
+                            @if (item["Type"].IndexOf("GIFT") >= 0)
+                            {
+                                <span class="gift"></span>
+                            }
                         </div>
                         <a href="/p/@(item["SEOName"]).html" title="@item["MetaTitle"]"><img src="@(Url.Content("~/thumb/" + Libs.ThumbName(item["Image"].ToString(), "170x153")))" alt="@item["MetaTitle"]" /></a>
                     </div>
@@ -131,10 +181,46 @@
                     {
                     <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
                     }
-                    <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                    @if (@item["Status"] == 1)
+                    {
+                        if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                        {
+                            <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
+                        }
+                        if (item["DiscountPercent"].ToString().Equals("0"))
+                        {
+                            <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                        }
+                        else {
+                            <p><span class="price" style="color: gray;"><strike>Giá cũ: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</strike></span></p>
+                            <p><span class="price">Giá mới: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]/100*(100 - item["DiscountPercent"])))₫</span></p>
+                        }
+                    }
+                    else
+                    {
+                        <p><span class="price">Giá bán: 0₫ Tạm hết hàng</span></p>
+                    }
                     <div class="tooltip_content">
                         <p class="title">@item["Title"]</p>
-                        <p class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</p>
+                        @if (@item["Status"] == 1)
+                        {
+                            if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                            {
+                                <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
+                            }
+                            if (item["DiscountPercent"].ToString().Equals("0"))
+                            {
+                                <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                            }
+                            else {
+                                <p><span class="price" style="color: gray;"><strike>Giá cũ: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</strike></span></p>
+                                <p><span class="price">Giá mới: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]/100*(100 - item["DiscountPercent"])))₫</span></p>
+                            }
+                        }
+                        else
+                        {
+                            <p><span class="price">Giá bán: 0₫ Tạm hết hàng</span></p>
+                        }
                         @if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
                         {
                         <p><strong class="promotion">Khuyến mại:</strong> @item["Promotion"]</p>
@@ -154,6 +240,9 @@
                 <div class="item tooltip">
                     <h2><a class="title" href="/p/@(item["SEOName"]).html" title="@item["MetaTitle"]">@item["Title"]</a></h2>
                     <div class="p-img">
+                        <div class="newitem">
+                            <span class="pr">&nbsp;</span>
+                        </div>
                         <div class="event">
                         @if (!item["DiscountPercent"].ToString().Equals("0"))
                         {
@@ -166,17 +255,47 @@
                         </div>
                         <a href="/p/@(item["SEOName"]).html" title="@item["MetaTitle"]"><img src="@(Url.Content("~/thumb/" + Libs.ThumbName(item["Image"].ToString(), "170x153")))" alt="@item["MetaTitle"]" /></a>
                     </div>
-                    @if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                    @if (@item["Status"] == 1)
                     {
-                    <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
+                        if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                        {
+                            <p><strong class="promotion">KM:</strong> @item["Promotion"]</p>
+                        }
+                        if (item["DiscountPercent"].ToString().Equals("0"))
+                        {
+                            <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                        }
+                        else {
+                            <p><span class="price" style="color: gray;"><strike>Giá cũ: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</strike></span></p>
+                            <p><span class="price">Giá mới: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]/100*(100 - item["DiscountPercent"])))₫</span></p>
+                        }
                     }
-                    <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                    else
+                    {
+                        <p><span class="price">Giá bán: 0₫ Tạm hết hàng</span></p>
+                    }
+                    @*<p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>*@
                     <div class="tooltip_content">
                         <p class="title">@item["Title"]</p>
-                        <p class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</p>
-                        @if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                        @if (@item["Status"] == 1)
                         {
-                        <p><strong class="promotion">Khuyến mại:</strong> @item["Promotion"]</p>
+                            if (item["DiscountPercent"].ToString().Equals("0"))
+                            {
+                                <p><span class="price">Giá bán: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</span></p>
+                            }
+                            else
+                            {
+                                <p><span class="price" style="color: gray;"><strike>Giá cũ: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"]))₫</strike></span></p>
+                                <p><span class="price">Giá mới: @Libs.sCurrency(Convert.ToDecimal(item["SalePrice"] / 100 * (100 - item["DiscountPercent"])))₫</span></p>
+                            }
+                            if (!String.IsNullOrEmpty(@item["Promotion"].ToString()))
+                            {
+                                <p><strong class="promotion">Khuyến mại:</strong> @item["Promotion"]</p>
+                            }
+                        }
+                        else
+                        {
+                            <p><span class="price">Giá bán: 0₫ Tạm hết hàng</span></p>
                         }
                         <p><img src="@(Url.Content("~/thumb/" + Libs.ThumbName(item["Image"].ToString(), "350x350")))" alt="@item["MetaTitle"]" /></p>
                         <p>@item["Brief"]</p>
@@ -202,7 +321,7 @@
             <ul>
                 @foreach (var item in ViewBag.QuestionNew)
                 {
-                <li><a title="@item["Title"]" href="hoidap/@(item["SEOName"]).html">@item["Title"]</a></li>
+                <li><a title="@item["Title"]" href="homthugopy/@(item["SEOName"]).html">@item["Title"]</a></li>
                 }
             </ul>
             <p><a title="Đặt câu hỏi và chia sẻ kinh nghiệm" rel="nofollow" href="/answer/question"><img alt="Đặt câu hỏi và chia sẻ" src="/Source/images/question.png" width="208" /></a></p>

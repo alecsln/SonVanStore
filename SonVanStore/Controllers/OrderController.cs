@@ -18,7 +18,11 @@ namespace iGoo.Controllers
         public ActionResult Index()
         {
             LoadDefault();
-
+            var result = Request.Get("result");
+            if(result == "1" && Request.Cookies["shopping_cart"] != null)
+            {
+                Response.Cookies["shopping_cart"].Expires = DateTime.Now.AddDays(-1);
+            }
             AttributeViewModel avm = new AttributeViewModel();
             avm.Code = "STATIC_GUIDE";
             ViewBag.StaticGuide = avm.SelectByCode().AsEnumerable().ToList();
@@ -189,7 +193,7 @@ namespace iGoo.Controllers
                             sc2.Title = row2["Title"].ToString();
                             sc2.SEOName = row2["SEOName"].ToString();
                             sc2.Image = row2["Image"].ToString();
-                            sc2.SalePrice = Convert.ToDecimal(row2["SalePrice"].ToString());
+                            sc2.SalePrice = Int32.Parse(row2["DiscountPercent"].ToString()) == 0 ? Convert.ToDecimal(row2["SalePrice"].ToString()) : Convert.ToDecimal(row2["SalePrice"].ToString())/100*(100- Int32.Parse(row2["DiscountPercent"].ToString()));
                             sc2.TotalPrice = sc2.SalePrice * sc2.Quantity;
                         }
                     }

@@ -81,7 +81,7 @@
                         <option value="0">Không hoạt động</option>
                     </select>
                     <button type="submit">Tìm kiếm</button>
-                    <button type="button" onclick=" javascript:window.location.href = '/Webcms/Product/Add'; ">Thêm mới</button>
+                    <button type="button" onclick="javascript:window.location.href='/Webcms/Product/Add';">Thêm mới</button>
                 </div>
             </form>
             <!-- End search -->
@@ -129,10 +129,6 @@
                             <th><a class="@(Request.Get("OrderBy").Equals("Title") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=Title&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Tên sản phẩm</a></th>
                             <th><a class="@(Request.Get("OrderBy").Equals("SalePrice") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePrice&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá </a></th>
                             <th><a class="@(Request.Get("OrderBy").Equals("SalePriceDealer") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceDealer&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá buôn</a></th>
-                            @*<th><a class="@(Request.Get("OrderBy").Equals("SalePriceHCM") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceHCM&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá HCM</a></th>
-                                <th><a class="@(Request.Get("OrderBy").Equals("SalePriceDealerHCM") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceDealerHCM&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá buôn HCM</a></th>
-                                <th><a class="@(Request.Get("OrderBy").Equals("SalePriceCN3") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceCN3&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá CN3</a></th>
-                                <th><a class="@(Request.Get("OrderBy").Equals("SalePriceDealerCN3") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceDealerCN3&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá buôn CN3</a></th>*@
                             <th><a class="@(Request.Get("OrderBy").Equals("Order") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=Order&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Thứ tự</a></th>
                             <th>Trạng thái</th>
                             </thead>
@@ -148,16 +144,12 @@
                                         <td class="subject">
                                             <span>@item["Title"]</span>
                                             <div class="edit">
-                                                <a target="_blank" class="actionEdit" href="/Webcms/Product/Add?ID=@item["ProductID"]">Sửa</a>
+                                                <a class="actionEdit" href="/Webcms/Product/Add?ID=@item["ProductID"]">Sửa</a>
                                                 <a class="actionDelete" href="javascript:Delete('@item["ProductID"]');">Xóa</a>
                                             </div>
                                         </td>
 										<td><input type="text" value="@item["SalePrice"]" name="txtsaleprice-@count" size="8" class="productPrice" data-a-sep="," data-a-dec="." data-v-max="999999999999" data-v-min="0" /></td>
                                         <td><input type="text" value="@item["SalePriceDealer"]" name="txtsalepricedealer-@count" size="8" class="productPrice" data-a-sep="," data-a-dec="." data-v-max="999999999999" data-v-min="0" /></td>
-                                        @*<td><input type="text" value="@(string.Format(" {0:n0}", @item["SalePriceHCM"]))" name="txtsalepricehcm-@count" size="8" onkeyup="javascript:priceCheck(this);" /></td>
-                                            <td><input type="text" value="@(string.Format(" {0:n0}", @item["SalePriceDealerHCM"]))" name="txtsalepricedealerhcm-@count" size="8" onkeyup="javascript:priceCheck(this);" /></td>
-                                            <td><input type="text" value="@(string.Format(" {0:n0}", @item["SalePriceCN3"]))" name="txtsalepricecn3-@count" size="8" onkeyup="javascript:priceCheck(this);" /></td>
-                                            <td><input type="text" value="@(string.Format(" {0:n0}", @item["SalePriceDealerCN3"]))" name="txtsalepricedealercn3-@count" size="8" onkeyup="javascript:priceCheck(this);" /></td>*@
                                         <td><input type="text" value="@(String.Equals(item["Order"].ToString(), "999") ? String.Empty : item["Order"])" name="txtOrder-@count" size="2" /></td>
                                         <td>
                                             <select class="change" name="slStatus-@count" title="@item["Status"]">
@@ -175,10 +167,6 @@
                             <th><a class="@(Request.Get("OrderBy").Equals("Title") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=Title&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Tên sản phẩm</a></th>
                             <th><a class="@(Request.Get("OrderBy").Equals("SalePrice") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePrice&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá</a></th>
                             <th><a class="@(Request.Get("OrderBy").Equals("SalePriceDealer") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceDealer&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá buôn</a></th>
-                            @*<th><a class="@(Request.Get("OrderBy").Equals("SalePriceHCM") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceHCM&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá HCM</a></th>
-                                <th><a class="@(Request.Get("OrderBy").Equals("SalePriceDealerHCM") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceDealerHCM&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá buôn HCM</a></th>
-                                <th><a class="@(Request.Get("OrderBy").Equals("SalePriceCN3") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceCN3&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá CN3</a></th>
-                                <th><a class="@(Request.Get("OrderBy").Equals("SalePriceDealerCN3") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=SalePriceDealerCN3&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Giá buôn CN3</a></th>*@
                             <th><a class="@(Request.Get("OrderBy").Equals("Order") ? (Request.Get("Order").Equals("asc") ? "desc" : "asc") : String.Empty)" href="@Request.Query("OrderBy=Order&Order=" + (Request.Get("Order").Equals("asc") ? "desc" : "asc"))">Thứ tự</a></th>
                             <th>Trạng thái</th>
                             </tfoot>

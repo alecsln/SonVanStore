@@ -265,6 +265,15 @@ function ActionForm(action)
             }
         }
     });
+    $('button[id="btnActionDeleteFile"]').click(function () {
+        if ($('input:checkbox[title="ckID"]:checked').val() != null) {
+            if (confirm("Bạn thực sự muốn xóa?")) {
+                $('#frmList').attr('method', "POST");
+                $('#frmList').attr('action', action + "/DeleteFile");
+                $('#frmList').submit();
+            }
+        }
+    });
     $('button[id="btnDelete"]').click(function () {
         if ($('input:checkbox[title="ckID"]:checked').val() != null) {
             if (confirm("Bạn thực sự muốn xóa?")) {

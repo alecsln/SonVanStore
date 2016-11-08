@@ -1,5 +1,4 @@
-﻿// Nguyen Thanh Binh - 0923.686.993 - Thanhbinh101287@gmail.com - Y!M: Thanhbinh101287
-
+﻿
 function scrollTop(where) {
     $('#' + where).click(function () {
         $('html, body').animate({ scrollTop: '0px' }, 500);

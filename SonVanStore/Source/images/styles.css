@@ -102,7 +102,7 @@ a:hover
 }
 .wrapper
 {
-	background: #24BDE2;
+	background: #ececec;
 }
 .main
 {
@@ -126,7 +126,7 @@ a:hover
 }
 .toolbar
 {
-	background: #106db0;
+	background: #F475A3;
 }
 .toolbar .l
 {
@@ -230,7 +230,7 @@ a:hover
 }
 .left .cate h3
 {
-	background: #F60 url(dot3.png) no-repeat 5px 7px;
+	background: #F475A3;
 	color: #FFF;
 	font-size: 12px;
 	padding: 5px 0 5px 25px;
@@ -244,7 +244,7 @@ a:hover
 {
 	background: url(dot2.png) 8px 10px no-repeat;
 	border-bottom: #ebebeb 1px solid;
-	color: #106DB0;
+	color: #050505;
 	display: block;
 	font-weight: bold;
 	height: 1%;
@@ -252,7 +252,7 @@ a:hover
 }
 .left .cate a:hover
 {
-	background: #F60 url(dot2.png) 8px 10px no-repeat;
+	background: #F475A3 url(dot2.png) 8px 10px no-repeat;
 	color: #FFF;
 	text-decoration: none;
 }
@@ -311,15 +311,15 @@ a:hover
 }
 .intro .news-h h3
 {
-	background: url(dot1.png) 0 7px no-repeat;
-	color: #106db0;
+	/*background: url(dot1.png) 0 7px no-repeat;*/
+	color: #050505;
 	font-size: 12px;
-	padding: 5px 5px 5px 20px;
+	padding: 5px 0;
 }
 .intro .news-h a
 {
 	border-top: #FFF solid 1px;
-	color: #106DB0;
+	color: #050505;
 	display: block;
 	padding: 2px;
 }
@@ -357,13 +357,14 @@ a:hover
 
 .nav2 .menu
 {
-	background: #106DB0;
+	background: #F475A3;
 	float: left;
-    width: 100%;
+	width: 100%;
 }
 .nav2 .menu li
 {
-	background: url(line1.jpg) top right no-repeat;
+	/*background: url(line1.jpg) top right no-repeat;*/
+	background: #F475A3;
 	float: none;
 	position: relative;
 	z-index: 100;
@@ -413,6 +414,7 @@ a:hover
 }
 .menu-mobile {
     display: block;
+    background: #ffb6c1;
 }
 .menu-desktop {
     display: none;
@@ -488,8 +490,8 @@ a:hover
 .content-h .ch2 .news-h h3
 {
 	background: url(dot1.png) 0 7px no-repeat;
-	border-bottom: 2px solid #106DB0;
-	color: #106db0;
+	border-bottom: 2px solid #F475A3;
+	color: #F475A3;
 	margin-bottom: 5px;
 	padding: 5px 5px 5px 20px;
 }
@@ -513,7 +515,7 @@ a:hover
 }
 .footer
 {
-	background: #106db0;
+	background: #F475A3;
 	color: #FFF;
 	padding: 10px 0px;
 }
@@ -551,8 +553,8 @@ a:hover
 }
 .title-c
 {
-	background: url(bg-m.png) repeat-x bottom;
-	color: #106DB0;
+	background: #F475A3;
+	color: #FFFFFF;
 	font-size: 13px;
 	padding: 8px 5px;
 }
@@ -1095,7 +1097,7 @@ pre, xmp, plaintext, listing
 }
 .list-p .item .title
 {
-	color: #106DB0;
+	color: #050505;
 	display: block;
 	font-size: 12px;
 	height: 60px;
@@ -1118,6 +1120,30 @@ pre, xmp, plaintext, listing
 	text-align: center;
 }
 .list-p .item .event .gift
+{
+	background: url(bg-gift.png) center no-repeat;
+	display: block;
+	height: 50px;
+	width: 50px;
+}
+.list-p .item .newitem
+{
+	position: absolute;
+	left: 0;
+	top: 5px;
+}
+.list-p .item .newitem .pr
+{
+	background: url(new.gif) center no-repeat;
+	color: #FFF;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px 10px;
+    margin: 0 10px;
+	text-align: center;
+}
+.list-p .item .newitem .gift
 {
 	background: url(bg-gift.png) center no-repeat;
 	display: block;
@@ -1422,14 +1448,13 @@ a.tel-hotline-hotromh{
     .c, .nav, .main{
         width: 750px;
         padding: 0;
-          -webkit-box-sizing: content-box;
-      -moz-box-sizing: content-box;
-      box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
     }
     .nav2 .menu {
         width: 100%;
     }
-    
     .list-p .item {
          width: 33.33333333%;  min-height: 280px;
         float: left;
@@ -1496,7 +1521,7 @@ a.tel-hotline-hotromh{
         display: block;
     }
     .left {
-        width: 150px;
+        width: 170px;
         float: left;
         margin-left: 5px;
     }
@@ -1508,7 +1533,7 @@ a.tel-hotline-hotromh{
       box-sizing: content-box;
     }
     .content {
-        width: 835px;
+        width: 815px;
         float: left;
         margin: 0px 5px;
     }
@@ -1516,17 +1541,18 @@ a.tel-hotline-hotromh{
         width: 610px;
     }
     .list-p .item {
-        margin: 10px 9px;
+        margin: 10px 6px;
         padding: 0;
         float: left;
-        height: 250px;min-height: 100%;
+        height: 250px;
+        min-height: 100%;
         width: 190px;
     }
     .list-p .item .p-img {
         width: 185px;
     }
     .search .text {
-        width: 165px;
+        width: 150px;
     }
 
     .content-h .ch2-home .b1{
@@ -1579,11 +1605,12 @@ a.tel-hotline-hotromh{
     }
       .nav
         {
-	        background: #ececec url(bg-nav.png) -50px no-repeat;
+	        /*background: #ececec url(bg-nav.png) -50px no-repeat;*/
+	        background: #ececec -50px no-repeat;
         }
     .nav .c .logo{
 	    float: left;
-	    padding: 0 40px;
+	    padding: 0 20px;
     }
     .nav .c .logo
     {
@@ -1670,11 +1697,11 @@ a.tel-hotline-hotromh{
     }
     .nav2 .menu li
     {
-	    background: url(line1.jpg) top right no-repeat;
+	    background: #F475A3;
 	    float: left;
 	    position: relative;
 	    z-index: 100;
-    }
+	   }
     .answer-l .a h2
     {
 	    font-size: 14px;
@@ -1731,40 +1758,45 @@ a.tel-hotline-hotromh{
         margin-top: 0;
 	    overflow: hidden;
 	    padding: 0 5px 5px 5px;
-	    width: 208px;
-
+	    width: 187px;
         -webkit-box-sizing: content-box;
         -moz-box-sizing: content-box;
         box-sizing: content-box;
+        overflow-y: scroll
     }
     .list-p .item .title
     {
-	    color: #106DB0;
+	    color: #050505;
 	    display: block;
 	    font-size: 12px;
 	    height: 45px;
 	    overflow: hidden;
-    }
+	   }
     .nav2 .menu li ul
     {
-	    background: #106DB0;
+	    background: #F475A3;
 	    display: none;
 	    left: 0;
 	    position: absolute;
 	    top: 30px;
 	    width: 180px;
-    }
+	   }
     .nav2 .menu li:hover ul
     {
         display: block;
     }
+    /*.nav2 .menu li:hover
+    {
+        background: #FFFFFF;
+        color: #F475A3;
+    }*/
     .menu .arrow {
         display: none;
     }
     .nav2 .menu a:hover
     {
-	    background: #F60;
-	    color: #FFF;
+	    background: #FFFFFF;
+	    color: #F475A3;
 	    text-decoration: none;
     }
     .nav2 .menu li ul li {
@@ -1862,4 +1894,61 @@ a.tel-hotline-hotromh{
 video {
   width: 100%    !important;
   height: auto   !important;
+}
+.n.cl{
+    width: 49%;
+    box-sizing: border-box;
+    float: left;
+    /*height:220px;*/
+	height: auto;
+}
+.page.cl{
+    clear: both;
+}
+.cart-a p.i label {
+    width: auto;
+}
+.auto-resizable-iframe {
+  max-width: 420px;
+  margin: 0px auto;
+}
+
+.auto-resizable-iframe > div {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0px;
+}
+
+.auto-resizable-iframe iframe {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.social {
+	font-size: 1px;
+}
+
+/* This gets Facebook to fall into place */
+.social iframe,.social>span {
+    vertical-align: middle;
+}
+
+/* Set an optional width for your button wrappers */
+.social span {
+	display: inline-block;
+	width: 110px;
+}
+
+/* Adjust the widths individually if you like */
+.social .google {
+	width: 75px;
+}
+#findUsOnFacebook{
+	background: #3C5997;
+	color: #FFF;
+	font-size: 12px;
+	padding: 5px 0 5px 25px;
 }

@@ -26,8 +26,9 @@ namespace iGoo.Controllers
             ProductViewModel pvm = new ProductViewModel();
             if (!Request.IsNull("key"))
                 pvm.Title = Request.Get("key");
-                
-            pvm.CategoryID = new Guid(listCate[0]["CategoryID"].ToString());
+            
+            if(listCate.Count > 0)    
+                pvm.CategoryID = new Guid(listCate[0]["CategoryID"].ToString());
             pvm.PageIndex = page;
             pvm.PageSize = 20;
 

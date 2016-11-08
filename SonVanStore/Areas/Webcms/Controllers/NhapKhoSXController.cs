@@ -62,7 +62,7 @@ namespace iGoo.Areas.Webcms.Controllers
             //idv.InventoryID = Request.IsNull("slSearchType") ? idv.InventoryID = new Guid(listIv[0]["InventoryID"].ToString()) : idv.InventoryID = new Guid(Request.Get("slSearchType"));
             //idv.InventoryDetailID = Request.IsNull("InventoryDetailID") ? idv.InventoryDetailID = Guid.Empty : idv.InventoryDetailID = new Guid(Request.Get("InventoryDetailID"));
 
-            string strUserId = (string)Session["UserID"];
+            string strUserId = Session["UserID"].ToString();
             //select inventory            
             iv.UserID = new SqlGuid(strUserId);
             List<DataRow> listIv = iv.SelectUserMenu().AsEnumerable().ToList();

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Cty CPSXTM&DV BBT Việt Nam - Cty TNHH Intex Việt Nam</title>
+<title>sonvan.vn</title>
 <link href="@Url.Content("~/Source/webcms/styles/styles.css")" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="@Url.Content("~/Script/jquery-1.11.1.js")"></script> 
 <script type="text/javascript" src="@Url.Content("~/Script/libs_webcms.js")"></script>
@@ -45,11 +45,11 @@
                     @foreach (var item1 in @item.Menu)
                     {
                         if (!item1.Name.ToString().Equals("Showroom")){
-                            <li><a href="@Url.Action(String.Empty, @item1.UrlLink.ToString())">@item1.Name</a></li>
+                            <li><a href="/Webcms/@Html.Raw(@item1.UrlLink.ToString())">@item1.Name</a></li>
                         }
                         else
                         {
-                            <li><a href="@Url.Action(String.Empty, @item1.UrlLink.ToString())?t=1">@item1.Name</a></li>
+                            <li><a href="/Webcms/@Html.Raw(@item1.UrlLink.ToString())?t=1">@item1.Name</a></li>
                         }
                     }
                 </ul>
@@ -60,6 +60,7 @@
         @RenderSection("content", true)
       <div class="clearfix"></div>       
        <span class="onlineusers">@HttpContext.Current.Application["OnlineUsers"]</span>
+       <span class="sessiontimeout">@HttpContext.Current.Application["sessiontimeout"]</span>
     </div>
     <!-- End main -->
 </div> 

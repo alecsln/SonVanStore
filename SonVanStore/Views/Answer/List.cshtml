@@ -1,6 +1,6 @@
 ﻿@using iGoo.Helpers
 @{
-    Layout = "~/Views/Layout/Home2.cshtml";
+    Layout = "~/Views/Layout/Home.cshtml";
 }
 @section meta
 {
@@ -14,7 +14,7 @@ else
 <meta name="description" content="@ViewBag.Category[0]["MetaTitle"] | @ViewBag.Website[0]["MetaTitle"]" />
 }
 <meta name="keywords" content="@ViewBag.Category[0]["MetaKeyword"]" />
-<link rel="canonical" href="http://@Libs.sApp("Domain")/hoidap/@Html.Raw(ViewBag.Category[0]["SEOName"])" />
+<link rel="canonical" href="http://@Libs.sApp("Domain")/homthugopy/@Html.Raw(ViewBag.Category[0]["SEOName"])" />
 }
 @section head
 {
@@ -37,9 +37,9 @@ else
 {
 <div class="content-h cl">
     <div class="title-c cl nv">
-        <a itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="url" title="Hỏi & Đáp Goolge Việt" href="/hoidap"><span itemprop="title">Hỏi & Đáp</span></a><span class="fl">&raquo;</span>
+        <a itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="url" title="Hỏi & Đáp Goolge Việt" href="/homthugopy"><span itemprop="title">Hỏi & Đáp</span></a><span class="fl">&raquo;</span>
         <h1><a itemscope itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="url" title="@ViewBag.Category[0]["MetaTitle"]" href="@(ViewBag.Category[0]["SEOName"])"><span itemprop="title">@ViewBag.Category[0]["Name"]</span></a></h1>
-        <a target="_blank" title="/hoidap/@ViewBag.Category[0]["MetaTitle"] RSS" href="@(ViewBag.Category[0]["SEOName"]).rss"><img alt="RSS" src="/Source/images/rss.png" /></a>
+        <a target="_blank" title="/homthugopy/@ViewBag.Category[0]["MetaTitle"] RSS" href="@(ViewBag.Category[0]["SEOName"]).rss"><img alt="RSS" src="/Source/images/rss.png" /></a>
     </div>
     <div class="answer-l">
     @if (ViewBag.Question.Count > 0)
@@ -48,10 +48,10 @@ else
         {
         <div class="a cl">
             <a rel="nofollow" title="Trang cá nhân G+ của @item["FullName"]" target="_blank" href="/u/@item["UserName"]"><img class="av" alt="Ảnh cá nhân của @item["FullName"]" src="@("".Equals(item["Image"].ToString()) ? Url.Content("~/Source/images/avatar.jpg") : item["Image"].ToString())" /></a>
-            <h2><a title="@item["Title"]" href="/hoidap/@(item["SEOName"]).html">@item["Title"]</a></h2>
+            <h2><a title="@item["Title"]" href="/homthugopy/@(item["SEOName"]).html">@item["Title"]</a></h2>
             <p class="d">@(Libs.ToPrettyDate(Convert.ToDateTime(item["Modified"])))</p>
             <div class="r">
-                <p><g:plusone size="small" href="http://igoo.vn/hoidap/@(item["SEOName"]).html"></g:plusone></p>
+                <p><g:plusone size="small" href="http://igoo.vn/homthugopy/@(item["SEOName"]).html"></g:plusone></p>
                 <p class="t">@item["TotalAnswer"] Trả lời</p>
             </div>
         </div>
@@ -69,20 +69,20 @@ else
             {
                 if (i == c)
                 {
-                <a class="page-c" title="@ViewBag.Category[0]["MetaTitle"] - Trang @(i.ToString())" href="/hoidap/@(i == 1 ? ViewBag.Category[0]["SEOName"] : ViewBag.Category[0]["SEOName"] + "/" + i.ToString())">@i.ToString()</a>
+                <a class="page-c" title="@ViewBag.Category[0]["MetaTitle"] - Trang @(i.ToString())" href="/homthugopy/@(i == 1 ? ViewBag.Category[0]["SEOName"] : ViewBag.Category[0]["SEOName"] + "/" + i.ToString())">@i.ToString()</a>
                 }
                 else
                 {
-                <a @Html.Raw(i - c == 1 ? "rel=\"next\"" : string.Empty)@Html.Raw(c - i == 1 ? "rel=\"prev\"" : string.Empty) title="@ViewBag.Category[0]["MetaTitle"] - Trang @(i.ToString())" href="/hoidap/@(i == 1 ? ViewBag.Category[0]["SEOName"] : ViewBag.Category[0]["SEOName"] + "/" + i.ToString())">@i.ToString()</a>
+                <a @Html.Raw(i - c == 1 ? "rel=\"next\"" : string.Empty)@Html.Raw(c - i == 1 ? "rel=\"prev\"" : string.Empty) title="@ViewBag.Category[0]["MetaTitle"] - Trang @(i.ToString())" href="/homthugopy/@(i == 1 ? ViewBag.Category[0]["SEOName"] : ViewBag.Category[0]["SEOName"] + "/" + i.ToString())">@i.ToString()</a>
                 }
             }
             @if(c>1)
             {
-                <link rel="prev" href="http://@Libs.sApp("Domain")/hoidap/@(ViewBag.Category[0]["SEOName"] + "/" + (c-1).ToString())" />
+                <link rel="prev" href="http://@Libs.sApp("Domain")/homthugopy/@(ViewBag.Category[0]["SEOName"] + "/" + (c-1).ToString())" />
             }
             @if(c<p)
             {
-                <link rel="next" href="http://@Libs.sApp("Domain")/hoidap/@(ViewBag.Category[0]["SEOName"] + "/" + (c +1).ToString())" />
+                <link rel="next" href="http://@Libs.sApp("Domain")/homthugopy/@(ViewBag.Category[0]["SEOName"] + "/" + (c +1).ToString())" />
             }
         </div>
     }
@@ -96,7 +96,7 @@ else
         <h3 class="title-c">Từ khoá - Tags</h3>
         @foreach (var item in ViewBag.Category[0]["SEOTags"].ToString().Split(','))
         {
-            <a rel="tag" title="@item.Trim()" href="/hoidap/tags/@item.Trim().Replace(' ', '-')">@item.Trim()</a>
+            <a rel="tag" title="@item.Trim()" href="/homthugopy/tags/@item.Trim().Replace(' ', '-')">@item.Trim()</a>
         }
     </div>
     }

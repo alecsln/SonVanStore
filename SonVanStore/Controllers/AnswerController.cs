@@ -208,7 +208,7 @@ namespace iGoo.Controllers
                     qv.Update();
                 }
 
-                return "hoidap/"+qv.SEOName.ToString() + ".html";
+                return "homthugopy/" + qv.SEOName.ToString() + ".html";
             }
             catch (Exception ex)
             {

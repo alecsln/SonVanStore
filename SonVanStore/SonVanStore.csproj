@@ -142,6 +142,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -1379,6 +1380,7 @@
     <Content Include="Source\images\dot1.png" />
     <Content Include="Source\images\dot2.png" />
     <Content Include="Source\images\dot3.png" />
+    <Content Include="Source\images\FindMeOnFacebook.png" />
     <Content Include="Source\images\hotline.png" />
     <Content Include="Source\images\icon1.png" />
     <Content Include="Source\images\icon2.png" />
@@ -1386,6 +1388,7 @@
     <Content Include="Source\images\item1.jpg" />
     <Content Include="Source\images\line1.jpg" />
     <Content Include="Source\images\logo.png" />
+    <Content Include="Source\images\new.gif" />
     <Content Include="Source\images\pay.png" />
     <Content Include="Source\images\question.png" />
     <Content Include="Source\images\rss.png" />

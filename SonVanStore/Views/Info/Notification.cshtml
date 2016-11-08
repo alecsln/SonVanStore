@@ -1,6 +1,6 @@
 ﻿@using iGoo.Helpers
 @{
-    Layout = "~/Views/Layout/Home2.cshtml";
+    Layout = "~/Views/Layout/Home.cshtml";
 }
 @section meta
 {
@@ -26,7 +26,7 @@
             }
             else
             {
-            <p><a target="_blank" @Html.Raw("1".Equals(item["Notifi"]) ? "class=\"bold\"" : "") href="/hoidap/@(item["SEOName"]).html">@item["Title"]</a></p>
+            <p><a target="_blank" @Html.Raw("1".Equals(item["Notifi"]) ? "class=\"bold\"" : "") href="/homthugopy/@(item["SEOName"]).html">@item["Title"]</a></p>
             }
         }
         </div>
@@ -62,7 +62,7 @@
             <ul>
                 @foreach (var item in ViewBag.QuestionNew)
                 {
-                <li><a title="@item["Title"]" href="/hoidap/@(item["SEOName"]).html">@item["Title"]</a></li>
+                <li><a title="@item["Title"]" href="/homthugopy/@(item["SEOName"]).html">@item["Title"]</a></li>
                 }
             </ul>
         </div>
