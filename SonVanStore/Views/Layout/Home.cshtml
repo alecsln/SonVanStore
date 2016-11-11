@@ -1,15 +1,18 @@
 ﻿@using iGoo.Helpers
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" itemscope itemtype="http://schema.org/Article">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<meta http-equiv="content-language" content="vi" />
-@RenderSection("meta", false)
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="content-language" content="vi" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="wot-verification" content="93a81cfc1d0807a4c51d" />
+    @RenderSection("meta", false)
 
     <link rel="stylesheet" type="text/css" href="/Source/images/styles.css" />
-<script type="text/javascript">
+@*<script type="text/javascript">
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-2347404-24']);
@@ -21,10 +24,10 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-</script>
+</script>*@
 </head>
 <body>
-<div id="fb-root"></div>
+@*<div id="fb-root"></div>
 <script>
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -34,13 +37,13 @@
         js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=1720585548261705";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-</script>
+</script>*@
 <div class="wrapper">
 <div class="toolbar cl">
     <div class="c">
         <div class="l">
             <span style="vertical-align: middle;">@ViewBag.Website[0]["Title"]</span>
-            <div class="fb-like" data-href="https://www.facebook.com/sonvan.vn" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            @*<div class="fb-like" data-href="https://www.facebook.com/sonvan.vn" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>*@
         </div>
         <div class="r">
             <ul>
@@ -76,9 +79,9 @@
 <div class="nav cl">
     <div class="c">
         <div class="logo">
-            <a rel="nofollow" href="/" title="Về trang chủ"><img src="/Source/images/logo.png" alt="Logo Baby của tôi"/></a>
+            <a rel="nofollow" href="/" title="Về trang chủ"><img src="/Source/images/logo.png" alt="Logo sonvan.vn"/></a>
         </div>
-        <div class="fl">
+        <div class="fr">
             @foreach (var item in ViewBag.AdvTop)
             {
                 if (Path.GetExtension(item["File"]).ToLower().Equals(".swf"))
@@ -87,7 +90,7 @@
                 }
                 else
                 {
-                    <a title="@item["Title"]" @Html.Raw(item["Target"].ToString().Equals("1") ? "target=\"_blank\"" : String.Empty) href="@item["UrlLink"]"><img alt="@item["Title"]" src="/Uploads/@item["File"]" height="70"/></a>
+                    <a title="@item["Title"]" @Html.Raw(item["Target"].ToString().Equals("1") ? "target=\"_blank\"" : String.Empty) href="@item["UrlLink"]"><img alt="@item["Title"]" src="/Uploads/@item["File"]"/></a>
                 }
             }
         </div>

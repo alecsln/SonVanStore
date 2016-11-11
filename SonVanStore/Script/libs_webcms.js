@@ -285,7 +285,10 @@ function ActionForm(action)
     });
     $('button[id="btnUpdate"]').click(function () {
         $('#frmAdd').attr('method',"POST");
-        $('#frmAdd').attr('action',action+"/Create");
+        $('#frmAdd').attr('action', action + "/Create");
+        /*if ($('#txtContent').length > 0) {
+            $('#txtContent').val(CKEDITOR.instances.txtContent.getData());
+        }*/
         $('#frmAdd').submit();
     });   
     

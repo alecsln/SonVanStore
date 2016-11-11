@@ -199,7 +199,51 @@
                     <th><label>Nội dung</label></th>
                     <td>
                         <div id="tabs_content">
-                            <ul class="tabs">
+                            <ul  class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#content" aria-controls="content" role="tab" data-toggle="tab">Nội dung</a></li>
+                                <li role="presentation"><a href="#image" aria-controls="image" role="tab" data-toggle="tab">Slide show</a></li>
+                                <li role="presentation"><a href="#related" aria-controls="related" role="tab" data-toggle="tab">Sản phẩm liên quan</a></li>
+                                <li role="presentation"><a href="#parameter" aria-controls="parameter" role="tab" data-toggle="tab">Thông số kỹ thuật</a></li>
+                                <li role="presentation"><a href="#attribute" aria-controls="attribute" role="tab" data-toggle="tab">Thuộc tính sản phẩm</a></li>
+                                <li role="presentation"><a href="#filter" aria-controls="filter" role="tab" data-toggle="tab">Lọc thuộc tính</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="content"role="tabpanel" class="tab-pane active">
+                                    <p><textarea id="txtContent" name="txtContent" rows="20">@(flag ? String.Empty : ViewBag.Edit[0]["Content"])</textarea>
+                                    </p>
+                                    <p><button type="button" id="btnImage" title="upload" lang="ImageDescription">Thêm ảnh</button>
+                                    </p>
+                                </div>
+                                <div id="image" role="tabpanel" class="tab-pane">
+                                    <p><textarea id="txtSlideImage" name="txtSlideImage" rows="10">@(flag ? String.Empty : ViewBag.Edit[0]["SlideImage"])</textarea>
+                                    </p>
+                                    <p><button type="button" id="btnImage" title="upload" lang="ImageList">Thêm ảnh</button>
+                                    </p>
+                                </div>
+                                <div id="related" role="tabpanel" class="tab-pane">
+                                    <p><textarea id="txtRelated" name="txtRelated" rows="5">@(flag ? String.Empty : ViewBag.Edit[0]["Related"])</textarea>
+                                    </p>
+                                    <p><button type="button" id="btnAddRelated" lang="SetRelated">Thêm sản phẩm</button>
+                                    </p>
+                                </div>
+                                <div id="parameter" role="tabpanel" class="tab-pane">
+                                    <p><textarea id="txtParameter" name="txtParameter" rows="5">@(flag ? String.Empty : ViewBag.Edit[0]["Parameter"])</textarea>
+                                    </p>
+                                </div>
+                                <div id="attribute" role="tabpanel" class="tab-pane">
+                                    <p><textarea id="txtProductAttribute" name="txtProductAttribute" rows="5">@(flag ? String.Empty : ViewBag.Edit[0]["ProductAttribute"])</textarea>
+                                    </p>
+                                </div>
+                                <div id="filter" role="tabpanel" class="tab-pane">
+                                    <div class="list-Type">
+                                        @foreach (var item in ViewBag.Filter)
+                                        {
+                                            <p><input type="checkbox" name="ckFilter" title="@(flag ? String.Empty : @ViewBag.Edit[0]["Filter"])" value="@item["AttributeID"]"/>@item["Name"]</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            @*<ul class="tabs">
                                 <li><a href="#content">Nội dung</a></li>
                                 <li><a href="#image">Slide show</a></li>
                                 <li><a href="#related">Sản phẩm liên quan</a></li>
@@ -242,7 +286,7 @@
                                         }
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </td>
                 </tr>
@@ -258,15 +302,51 @@
                     <th><label>SEO</label></th>
                     <td>
                         <div id="tabs_seo">
-                            <ul class="tabs">
+                            @*<ul class="tabs">
                                 <li><a href="#metatitle">Meta Title</a></li>
                                 <li><a href="#metadescription">Meta Description</a></li>
                                 <li><a href="#metakeyword">Meta Keyword</a></li>
                                 <li><a href="#robots">Meta Robots</a></li>
                                 <li><a href="#tags">Tags</a></li>
                                 <li><a href="#tagstitle">Tags Title</a></li>
+                            </ul>*@
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#metatitle" aria-controls="metatitle" role="tab" data-toggle="tab">Meta Title</a></li>
+                                <li role="presentation" ><a href="#metadescription" aria-controls="metadescription" role="tab" data-toggle="tab">Meta Description</a></li>
+                                <li role="presentation" ><a href="#metakeyword" aria-controls="metakeyword" role="tab" data-toggle="tab">Meta Keyword</a></li>
+                                <li role="presentation" ><a href="#robots" aria-controls="robots" role="tab" data-toggle="tab">Meta Robots</a></li>
+                                <li role="presentation" ><a href="#tags" aria-controls="tags" role="tab" data-toggle="tab">Tags</a></li>
+                                <li role="presentation" ><a href="#tagstitle" aria-controls="tagstitle" role="tab" data-toggle="tab">Tags Title</a></li>
                             </ul>
-                            <div class="tab_container">
+                            <div class="tab-content">
+                                <div id="metatitle" role="tabpanel" class="tab-pane active">
+                                    <p><input type="text" name="txtMetaTitle" id="txtMetaTitle" value="@(flag ? String.Empty : ViewBag.Edit[0]["MetaTitle"])"/>
+                                    </p>
+                                </div>
+                                <div id="metadescription" role="tabpanel" class="tab-pane">
+                                    <p><textarea id="txtMetaDescription" name="txtMetaDescription" rows="5">@(flag ? String.Empty : ViewBag.Edit[0]["MetaDescription"])</textarea>
+                                    </p>
+                                </div>
+                                <div id="metakeyword" role="tabpanel" class="tab-pane">
+                                    <p><input type="text" name="txtMetaKeyword" value="@(flag ? String.Empty : ViewBag.Edit[0]["MetaKeyword"])"/>
+                                    </p>
+                                </div>
+                                <div id="tags" role="tabpanel" class="tab-pane">
+                                    <p><input type="text" name="txtTags" value="@(flag ? String.Empty : ViewBag.Edit[0]["Tags"])"/>
+                                    </p>
+                                </div>
+                                <div id="tagstitle" role="tabpanel" class="tab-pane">
+                                    <p><input type="text" name="txtTagsTitle" value="@(flag ? String.Empty : ViewBag.Edit[0]["TagsTitle"])"/>
+                                    </p>
+                                </div>
+                                <div id="robots" role="tabpanel" class="tab-pane">
+                                    <p><input type="checkbox" name="ckType" id="ckType" title="@(flag ? String.Empty : @ViewBag.Edit[0]["Type"])" value="NOINDEX"/>NOINDEX
+                                    </p>
+                                    <p><input type="checkbox" name="ckType" id="ckType" title="@(flag ? String.Empty : @ViewBag.Edit[0]["Type"])" value="NOFOLLOW"/>NOFOLLOW
+                                    </p>
+                                </div>
+                            </div>
+                            @*<div class="tab_container">
                                 <div id="metatitle" class="tab_content">
                                     <p><input type="text" name="txtMetaTitle" id="txtMetaTitle" value="@(flag ? String.Empty : ViewBag.Edit[0]["MetaTitle"])"/>
                                     </p>
@@ -293,7 +373,7 @@
                                     <p><input type="checkbox" name="ckType" id="ckType" title="@(flag ? String.Empty : @ViewBag.Edit[0]["Type"])" value="NOFOLLOW"/>NOFOLLOW
                                     </p>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </td>
                 </tr>
@@ -390,8 +470,8 @@
             });*/
             ShowUpload();
             ShowSearch();
-            loadTabs("tabs_content");
-            loadTabs("tabs_seo");
+//            loadTabs("tabs_content");
+//            loadTabs("tabs_seo");
 
             //Validate form
             $("#frmAdd").validate({

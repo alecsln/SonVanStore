@@ -111,12 +111,12 @@ else
                 {
                     if (item["DiscountPercent"] > 0)
                     {
-                        <p class="price">Giá Hà Nội: <strike style="color: gray">@Libs.sCurrency(Convert.ToDecimal(item["0C80DCD0-5D8E-4041-ACAF-2CF7C2916162"]))</strike>  @Libs.sCurrency(Convert.ToDecimal(item["0C80DCD0-5D8E-4041-ACAF-2CF7C2916162"] / 100 * (100 - item["DiscountPercent"]))) VNĐ</p>
+                        <p class="price">Giá: <strike style="color: gray">@Libs.sCurrency(Convert.ToDecimal(item["0C80DCD0-5D8E-4041-ACAF-2CF7C2916162"]))</strike>  @Libs.sCurrency(Convert.ToDecimal(item["0C80DCD0-5D8E-4041-ACAF-2CF7C2916162"] / 100 * (100 - item["DiscountPercent"]))) VNĐ</p>
                     }
                     else
                     {
-                        <p class="price">Giá Hà Nội: @Libs.sCurrency(Convert.ToDecimal(item["0C80DCD0-5D8E-4041-ACAF-2CF7C2916162"])) VNĐ</p>
-                        <p style="font-weight: bold;">Giá Hải Phòng: @Libs.sCurrency(Convert.ToDecimal(item["665F2362-FE8A-4169-9513-0109340F3C0B"])) VNĐ</p>
+                        <p class="price">Giá: @Libs.sCurrency(Convert.ToDecimal(item["0C80DCD0-5D8E-4041-ACAF-2CF7C2916162"])) VNĐ</p>
+                        @*<p style="font-weight: bold;">Giá Hải Phòng: @Libs.sCurrency(Convert.ToDecimal(item["665F2362-FE8A-4169-9513-0109340F3C0B"])) VNĐ</p>*@
                     }
                 }
                 else
@@ -295,7 +295,6 @@ else
            }
         </div>
         }
-		@*<div class="fb-comments" data-href="http://@Libs.sApp("Domain")/p/@(ViewBag.Product[0]["SEOName"]).html"  data-numposts="5"></div>*@
         <div class="send-c">
             <h3 class="h3-title">Gửi bình luận của bạn</h3>
             @Html.AntiForgeryToken()

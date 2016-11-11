@@ -626,7 +626,6 @@ a:hover
 }
 .page
 {
-	background: url(i-page.png) no-repeat;
 	font-weight: bold;
 	margin-bottom: 10px;
 	padding-left: 30px;text-align: center;
@@ -1610,10 +1609,7 @@ a.tel-hotline-hotromh{
         }
     .nav .c .logo{
 	    float: left;
-	    padding: 0 20px;
-    }
-    .nav .c .logo
-    {
+	    padding: 0 5px;
         text-align: left;
     }
     .nav .fl {
